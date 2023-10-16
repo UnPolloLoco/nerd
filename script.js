@@ -13,6 +13,15 @@ function polynomialSolve() {
   polynomial = polynomial.replaceAll('-', '[SPLIT]-');
   
   terms = polynomial.split('[SPLIT]');
+  newTerms = [];
+
+  for (term = 0; term < terms.length; term++) {
+    if (terms[term] != '') {
+      newTerms.push(term);
+    };
+  };
+
+  terms = newTerms;
   
   alert(JSON.stringify(terms));
 };
