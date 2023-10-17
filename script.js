@@ -14,14 +14,39 @@ function polynomialSolve() {
   
   terms = polynomial.split('[SPLIT]');
   newTerms = [];
+  termByDegree = {};
 
-  for (term = 0; term < terms.length; term++) {
-    if (terms[term] != '') {
-      newTerms.push(term);
+  for (termNum = 0; termNum < terms.length; termNum++) {
+    let term = terms[termNum];
+    
+    if (term != '') {
+      continue
     };
+
+    if (term.includes('x')) {
+      let coefficient = term.split('x')[0];
+      if (coefficient == '') {
+        coefficient = 1;
+      };
+      
+      if (term.includes('^')) {
+        // exponent >1
+        let exp = term.slice(-1);
+        termByDegree[exp] = coefficient;
+      } else {
+        // exponent =1
+        termByDegree[exp] = coefficient;
+      };
+    } else {
+      // exponent =0
+      termByDegree[0] = term;
+    };
+    
+    //newTerms.push(terms[term]);
   };
 
-  terms = newTerms;
+  //terms = newTerms;
   
-  alert(JSON.stringify(terms));
+  //alert(JSON.stringify(terms));
+  alert(JSON.stringify(termByDegree));
 };
