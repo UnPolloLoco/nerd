@@ -13,25 +13,20 @@ function polynomialSolve() {
   polynomial = polynomial.replaceAll('-', '[SPLIT]-');
   
   terms = polynomial.split('[SPLIT]');
-  newTerms = [];
   termByDegree = {};
 
   for (termNum = 0; termNum < terms.length; termNum++) {
     let term = terms[termNum];
     
-    if (term != '') {
+    if (term == '') {
       continue
     };
- 
-    console.log('term ' + term);
 
     if (term.includes('x')) {
       let coefficient = term.split('x')[0];
       if (coefficient == '') {
         coefficient = 1;
       };
-
-      console.log('coef ' + coefficient);
       
       if (term.includes('^')) {
         // exponent >1
@@ -45,12 +40,7 @@ function polynomialSolve() {
       // exponent =0
       termByDegree[0] = term;
     };
-    
-    //newTerms.push(terms[term]);
   };
 
-  //terms = newTerms;
-  
-  //alert(JSON.stringify(terms));
   alert(JSON.stringify(termByDegree));
 };
