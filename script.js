@@ -58,5 +58,9 @@ function polynomialSolve() {
 
   let coefficientList = [];
 
-  alert(largestDegree);
+  for (d = 0; d <= largestDegree; d--) {
+
+  };
+
+  alert(JSON.stringify(termsByDegree));
 };
