@@ -30,7 +30,7 @@ function polynomialSolve() {
       
       if (term.includes('^')) {
         // exponent >1
-        let exp = term.slice(-1);
+        let exp = term.split('^')[1];
         termByDegree[exp] = coefficient;
       } else {
         // exponent =1
