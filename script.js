@@ -58,7 +58,7 @@ function polynomialSolve() {
 
   let coefficientList = [];
 
-  for (d = 0; d <= largestDegree; d--) {
+  for (d = 0; d <= largestDegree; d++) {
 
   };
 
