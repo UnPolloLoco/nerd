@@ -35,7 +35,7 @@ function polynomialSolve() {
         termByDegree[exp] = coefficient;
       } else {
         // exponent =1
-        termByDegree[exp] = coefficient;
+        termByDegree[1] = coefficient;
       };
     } else {
       // exponent =0
