@@ -22,12 +22,16 @@ function polynomialSolve() {
     if (term != '') {
       continue
     };
+ 
+    console.log('term ' + term);
 
     if (term.includes('x')) {
       let coefficient = term.split('x')[0];
       if (coefficient == '') {
         coefficient = 1;
       };
+
+      console.log('coef ' + coefficient);
       
       if (term.includes('^')) {
         // exponent >1
