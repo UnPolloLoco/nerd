@@ -13,7 +13,7 @@ function polynomialSolve() {
   polynomial = polynomial.replaceAll('-', '[SPLIT]-');
   
   terms = polynomial.split('[SPLIT]');
-  termByDegree = {};
+  termsByDegree = {};
 
   for (termNum = 0; termNum < terms.length; termNum++) {
     let term = terms[termNum];
@@ -31,16 +31,32 @@ function polynomialSolve() {
       if (term.includes('^')) {
         // exponent >1
         let exp = term.split('^')[1];
-        termByDegree[exp] = coefficient;
+        termsByDegree[exp] = coefficient;
       } else {
         // exponent =1
-        termByDegree[1] = coefficient;
+        termsByDegree[1] = coefficient;
       };
     } else {
       // exponent =0
-      termByDegree[0] = term;
+      termsByDegree[0] = term;
     };
   };
 
-  alert(JSON.stringify(termByDegree));
+  let keys = Object.keys(termsByDegree);
+  let largestCoefficient = '...';
+
+  for (k = 0; k < keys.length; k++) {
+    let current = keys[k];
+    
+    if (largestCoefficient == '...') {
+      largestCoefficient = current;
+      continue
+    };
+
+    largestCoefficient = Math.max(current, largestCoefficient);
+  };
+
+  let coefficientList = [];
+
+  alert(largestCoefficient);
 };
