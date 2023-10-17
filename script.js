@@ -43,20 +43,20 @@ function polynomialSolve() {
   };
 
   let keys = Object.keys(termsByDegree);
-  let largestCoefficient = '...';
+  let largestDegree = '...';
 
   for (k = 0; k < keys.length; k++) {
     let current = keys[k];
     
-    if (largestCoefficient == '...') {
-      largestCoefficient = current;
+    if (largestDegree == '...') {
+      largestDegree = current;
       continue
     };
 
-    largestCoefficient = Math.max(current, largestCoefficient);
+    largestDegree = Math.max(current, largestDegree);
   };
 
   let coefficientList = [];
 
-  alert(largestCoefficient);
+  alert(largestDegree);
 };
