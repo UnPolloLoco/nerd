@@ -76,11 +76,11 @@ function polynomialSolve() {
 
   // do the actual solving
 
-  let val = coefficientList[0];
+  let val = parseFloat( coefficientList[0] );
   
   for (let i = 1; i < largestDegree + 1; i++) {
     val *= xValue;
-    val += coefficientList[i];
+    val += parseFloat( coefficientList[i] );
   }; 
   
   alert(val);
