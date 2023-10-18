@@ -58,7 +58,7 @@ function polynomialSolve() {
 
   let coefficientList = [];
 
-  for (d = 0; d <= largestDegree; d++) {
+  for (d = largestDegree; d >= 0; d--) {
     let c = termsByDegree[d];
     if (c == undefined) {
       c = 0;
