@@ -6,14 +6,18 @@ function ID(x) {
 
 function polynomialSolve() {
   let polynomial = ID('polynomialSolve_polynomial').value;
-  let xVal = ID('polynomialSolve_xValue').value;
+  let xValue = ID('polynomialSolve_xValue').value;
 
+  // prep data collection
+  
   polynomial = polynomial.replaceAll(' ', '');
   polynomial = polynomial.replaceAll('+', '[SPLIT]');
   polynomial = polynomial.replaceAll('-', '[SPLIT]-');
   
   terms = polynomial.split('[SPLIT]');
   termsByDegree = {};
+
+  // sort terms by their exponent
 
   for (termNum = 0; termNum < terms.length; termNum++) {
     let term = terms[termNum];
@@ -42,6 +46,8 @@ function polynomialSolve() {
     };
   };
 
+  // find term with largest degree
+  
   let keys = Object.keys(termsByDegree);
   let largestDegree = '...';
 
@@ -56,6 +62,8 @@ function polynomialSolve() {
     largestDegree = Math.max(current, largestDegree);
   };
 
+  // create a list of coefficients
+
   let coefficientList = [];
 
   for (d = largestDegree; d >= 0; d--) {
@@ -66,5 +74,14 @@ function polynomialSolve() {
     coefficientList.push(c);
   };
 
-  alert(coefficientList);
+  // do the actual solving
+
+  let val = coefficientList[0];
+  
+  for (let i = 1; i < largestDegree + 1; i++) {
+    val *= xValue;
+    val += coefficientList[i];
+  }; 
+  
+  alert(val);
 };
