@@ -100,3 +100,15 @@ c-extra {
 c-accordionindicator {
 	float: right;
 }
+
+c-extra > c-accordion {
+	background-color: var(--color-dark);
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+
+c-extra > c-extra {
+	background-color: var(--color-dark);
+	margin-bottom: 0;
+}
+

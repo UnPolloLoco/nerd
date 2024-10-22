@@ -48,8 +48,8 @@ for (let i = 0; i < accordionList.length; i++) {
 	accordionElement.innerHTML = accordionElement.innerHTML + '<c-accordionindicator>+</c-accordionindicator>';
 
 	let openID = accordionElement.getAttribute('data-opens');
-	let accordionPanel = document.querySelectorAll(`[data-openedby='${openID}']`)[0];
-	let accordionIndicator = document.querySelectorAll(`[data-opens='${openID}'] > c-accordionindicator`)[0];
+	let accordionPanel = document.querySelector(`[data-openedby='${openID}']`);
+	let accordionIndicator = document.querySelector(`[data-opens='${openID}'] > c-accordionindicator`);
 
 	accordionElement.addEventListener('click', function() { 
 		accordionClick(accordionElement, accordionPanel, accordionIndicator);
@@ -58,6 +58,7 @@ for (let i = 0; i < accordionList.length; i++) {
 
 // Accordion click function
 function accordionClick(accordion, panel, indicator) {
+	let isNested = accordion.parentElement.tagName == 'C-EXTRA';
 	if (indicator.innerHTML == '+') {
 		// SHOW
 		indicator.innerHTML = '&ndash;';
@@ -68,6 +69,6 @@ function accordionClick(accordion, panel, indicator) {
 		// HIDE
 		indicator.innerText = '+';
 		panel.style.display = 'none';
-		accordion.style.marginBottom = '40px';
+		if (!isNested) accordion.style.marginBottom = '40px';
 	}
 }
