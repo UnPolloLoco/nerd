@@ -1,7 +1,9 @@
 :root {
-	--color-dark: rgb(30,30,30);
+	--color-dark: rgb(25,25,25);
+	--color-less-dark: rgb(40,40,40);
 	--color-red: rgb(200,60,60);
 	--color-light-gray: rgb(170,170,170);
+	--color-yellow: rgb(220, 200, 120);
 }
 
 body {
@@ -10,13 +12,14 @@ body {
 	font-family: 'Times New Roman', Times, serif;
 	margin: 0;
 	padding: 0;
+	font-size: 18px;
 }
 
 #header {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: calc(100% - 130px);
 	background-color: var(--color-red);
 	margin: 0;
 	padding: 20px 65px;
@@ -49,10 +52,51 @@ p {
 	margin: 0;
 	margin-bottom: 40px;
 	padding: 0;
-	font-size: 18px;
 	color: var(--color-light-gray);
 }
 
 katex {
 	color: white;
+}
+
+a {
+	color: var(--color-yellow);
+	text-decoration: underline;
+}
+
+a:hover {
+	color: white;
+}
+
+h2 {
+	font-size: 26px;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+c-accordion {
+	display: block;
+	width: calc(100% - 80px);
+	color: white;
+	background-color: var(--color-less-dark);
+	padding: 20px 40px;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+
+c-accordion:hover {
+	cursor: pointer;
+}
+
+c-extra {
+	display: none;
+	background-color: var(--color-less-dark);
+	padding: 20px 40px;
+	padding-top: 0;
+	color: var(--color-light-gray);
+	margin-bottom: 40px;
+}
+
+c-accordionindicator {
+	float: right;
 }

@@ -40,3 +40,34 @@ script.onload = () => {
 		katex.render(element.innerText, element, {throwOnError: false});
 	}
 }
+
+// Prepare accordions
+let accordionList = document.getElementsByTagName('c-accordion');
+for (let i = 0; i < accordionList.length; i++) {
+	let accordionElement = accordionList[i];
+	accordionElement.innerHTML = accordionElement.innerHTML + '<c-accordionindicator>+</c-accordionindicator>';
+
+	let openID = accordionElement.getAttribute('data-opens');
+	let accordionPanel = document.querySelectorAll(`[data-openedby='${openID}']`)[0];
+	let accordionIndicator = document.querySelectorAll(`[data-opens='${openID}'] > c-accordionindicator`)[0];
+
+	accordionElement.addEventListener('click', function() { 
+		accordionClick(accordionElement, accordionPanel, accordionIndicator);
+	});
+}
+
+// Accordion click function
+function accordionClick(accordion, panel, indicator) {
+	if (indicator.innerHTML == '+') {
+		// SHOW
+		indicator.innerHTML = '&ndash;';
+		panel.style.display = 'block';
+		accordion.style.marginBottom = '0';
+
+	} else {
+		// HIDE
+		indicator.innerText = '+';
+		panel.style.display = 'none';
+		accordion.style.marginBottom = '40px';
+	}
+}
