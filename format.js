@@ -1,8 +1,7 @@
 let meta = `
 	<title>NERD</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">`;
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">`;
 
 //	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
 //	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
@@ -15,25 +14,37 @@ let header = `
 	</div>
 	<div id="content">`;
 
-document.head.innerHTML = meta
+document.head.innerHTML = meta + document.head.innerHTML;
 document.body.innerHTML = header + document.body.innerHTML + '</div>';
 
+// Load style
+let sLink  = document.createElement('link');
+sLink.rel  = 'stylesheet';
+sLink.type = 'text/css';
+sLink.href = 'style.css';
+document.head.appendChild(sLink);
+
+// Revert background on load
+sLink.onload = () => {
+	document.documentElement.style.background = 'unset';
+}
+
 // Load Katex script
-let script = document.createElement('script');
-script.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';
-script.crossorigin = "anonymous"
-document.head.appendChild(script);
+let kScript = document.createElement('script');
+kScript.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js';
+kScript.crossorigin = "anonymous"
+document.head.appendChild(kScript);
 
 // Load Katex style
-let link  = document.createElement('link');
-link.rel  = 'stylesheet';
-link.type = 'text/css';
-link.href = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css';
-link.crossorigin = "anonymous"
-document.head.appendChild(link);
+let kLink  = document.createElement('link');
+kLink.rel  = 'stylesheet';
+kLink.type = 'text/css';
+kLink.href = 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css';
+kLink.crossorigin = "anonymous"
+document.head.appendChild(kLink);
 
 // Use Katex script
-script.onload = () => {
+kScript.onload = () => {
 	let katexElementList = document.getElementsByTagName('katex');
 	for (let i = 0; i < katexElementList.length; i++) {
 		let element = katexElementList[i];

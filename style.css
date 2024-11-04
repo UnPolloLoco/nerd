@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap');
+
 :root {
+	--font-garamond: 'Cormorant Garamond', 'Times New Roman', Times, serif;
+	--font-tnr: 'Times New Roman', Times, serif;
 	--color-dark: rgb(25,25,25);
 	--color-less-dark: rgb(40,40,40);
 	--color-red: rgb(200,60,60);
@@ -6,10 +10,14 @@
 	--color-yellow: rgb(220, 200, 120);
 }
 
+html {
+	height: 100%;
+}
+
 body {
 	background: var(--color-dark);
 	color: white;
-	font-family: 'Times New Roman', Times, serif;
+	font-family: var(--font-garamond);
 	margin: 0;
 	padding: 0;
 	font-size: 18px;
@@ -31,13 +39,16 @@ body {
 	font-weight: bold;
 	font-size: 24px;
 	text-shadow: 0 2px 1px var(--color-dark);
+	font-family: var(--font-tnr);
 }
 
 #content {
-	width: 70vw;
+	width: 60vw;
 	position: absolute;
 	top: 180px;
-	left: 15vw;
+	left: 20vw;
+	margin: 0; 
+	padding: 0;
 }
 
 h1 {
@@ -53,6 +64,7 @@ p {
 	margin-bottom: 40px;
 	padding: 0;
 	color: var(--color-light-gray);
+	line-height: 27px;
 }
 
 katex {
@@ -99,6 +111,7 @@ c-extra {
 
 c-accordionindicator {
 	float: right;
+	font-family: var(--font-tnr);
 }
 
 c-extra > c-accordion {
@@ -112,3 +125,27 @@ c-extra > c-extra {
 	margin-bottom: 0;
 }
 
+figure {
+	margin: 0 auto;
+	margin-bottom: 40px;
+}
+
+figure, figure img {
+	width: 25vw;
+}
+
+.smaller, .smaller img {
+	width: 16vw;
+}
+
+figcaption {
+	color: var(--color-light-gray);
+	font-style: italic;
+	font-size: 14px;
+}
+
+c-split {
+	display: flex;
+	gap: 40px;
+	margin: 0;
+}
